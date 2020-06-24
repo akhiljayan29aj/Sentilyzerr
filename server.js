@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`listening at ${port}`));
 // Setting up static webpage
-app.use(express.static("../"));
+app.use(express.static("./public"));
 // To be able to parse the data in json
 app.use(express.json({ limit: "1mb" }));
 
