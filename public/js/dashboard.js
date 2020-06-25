@@ -291,7 +291,7 @@ var optionsBar = {
     },
   ],
   title: {
-    text: "Datewise Analysis of past 14 days ( yyyy/MM/dd )",
+    text: "Datewise Analysis of past 7 days ( dd/MM/yyyy )",
     align: "left",
     offsetY: 0,
   },

@@ -236,7 +236,7 @@ sparks4.render();
 sparks5.render();
 sparks6.render();
 
-// Section C: Datewise analysis of last 14 days BAR GRAPH according to the location
+// Section C: Datewise analysis of last 7 days BAR GRAPH according to the location
 var optionsBarLoco = {
   chart: {
     height: 380,
@@ -264,7 +264,7 @@ var optionsBarLoco = {
     },
   ],
   title: {
-    text: "Datewise Analysis of past 14 days ( yyyy/MM/dd )",
+    text: "Datewise Analysis of past 7 days ( dd/MM/yyyy )",
     align: "left",
     offsetY: 0,
   },
@@ -282,7 +282,7 @@ var chartBarLoco = new ApexCharts(
 );
 chartBarLoco.render();
 
-// Section D: Datewise analysis of last 14 days LINE GRAPH according to the location
+// Section D: Datewise analysis of last 7 days LINE GRAPH according to the location
 
 var optionsLocoLinez = {
   chart: {
