@@ -24,38 +24,75 @@ window.Apex = {
 
 // Setting up variables
 
-const delpos = [14, 25, 21, 17, 12, 13, 11, 19, 14, 25, 21, 17, 12, 13];
-const delneu = [11, 17, 15, 15, 21, 14, 15, 13, 11, 17, 15, 15, 21, 14];
-const delneg = [16, 18, 25, 19, 29, 19, 25, 23, 15, 16, 18, 19, 29, 24];
+const delposz = [];
+const delneuz = [];
+const delnegz = [];
 
-const mumpos = [16, 18, 25, 19, 29, 19, 25, 23, 15, 16, 18, 19, 29, 24];
-const mumneu = [11, 17, 15, 15, 21, 14, 15, 13, 11, 17, 15, 15, 21, 14];
-const mumneg = [14, 25, 21, 17, 12, 13, 11, 19, 14, 25, 21, 17, 12, 13];
+const mumposz = [];
+const mumneuz = [];
+const mumnegz = [];
 
-const chenpos = [16, 18, 25, 19, 29, 19, 25, 23, 15, 16, 18, 19, 29, 24];
-const chenneu = [14, 25, 21, 17, 12, 13, 11, 19, 14, 25, 21, 17, 12, 13];
-const chenneg = [11, 17, 15, 15, 21, 14, 15, 13, 11, 17, 15, 15, 21, 14];
+const chenposz = [];
+const chenneuz = [];
+const chennegz = [];
 
-const kolpos = [11, 17, 15, 15, 21, 14, 15, 13, 11, 17, 15, 15, 21, 14];
-const kolneu = [14, 25, 21, 17, 12, 13, 11, 19, 14, 25, 21, 17, 12, 13];
-const kolneg = [16, 18, 25, 19, 29, 19, 25, 23, 15, 16, 18, 19, 29, 24];
+const kolposz = [];
+const kolneuz = [];
+const kolnegz = [];
 
-const dates = [
-  "2011-01-01",
-  "2011-01-02",
-  "2011-01-03",
-  "2011-01-04",
-  "2011-01-05",
-  "2011-01-06",
-  "2011-01-07",
-  "2011-01-08",
-  "2011-01-09",
-  "2011-01-10",
-  "2011-01-11",
-  "2011-01-12",
-  "2012-01-13",
-  "2012-01-14",
-];
+const dates = [];
+
+chartIt2();
+
+async function getData6() {
+  const response = await fetch(
+    "https://raw.githubusercontent.com/SmartPracticeschool/SBSPS-Challenge-2671-Sentiment-analysis-of-COVID-19-tweets-Visualization-dashboard/master/public/data/VData.csv"
+  );
+  const data = await response.text();
+  // console.log(data);
+  const table = data.split("\n").slice(1);
+  for (let i = 0; i < 7; i++) {
+    const columns = table[i].split(",");
+    const date = columns[1];
+    dates.push(date);
+    const delpos = columns[6];
+    delposz.push(delpos);
+    const delneu = columns[7];
+    delneuz.push(delneu);
+    const delneg = columns[8];
+    delnegz.push(delneg);
+    const mumpos = columns[9];
+    mumposz.push(mumpos);
+    const mumneu = columns[10];
+    mumneuz.push(mumneu);
+    const mumneg = columns[11];
+    mumnegz.push(mumneg);
+    const chenpos = columns[12];
+    chenposz.push(chenpos);
+    const chenneu = columns[13];
+    chenneuz.push(chenneu);
+    const chenneg = columns[14];
+    chennegz.push(chenneg);
+    const kolpos = columns[15];
+    kolposz.push(kolpos);
+    const kolneu = columns[16];
+    kolneuz.push(kolneu);
+    const kolneg = columns[17];
+    kolnegz.push(kolneg);
+  }
+}
+
+async function chartIt2() {
+  await getData6();
+
+  sparks4.render();
+  sparks5.render();
+  sparks6.render();
+
+  chartBarLoco.render();
+
+  chartLocoLinez.render();
+}
 
 // Section B: Sparkboxes
 
@@ -83,7 +120,7 @@ var spark4 = {
   },
   series: [
     {
-      data: delpos,
+      data: delposz,
     },
   ],
   stroke: {
@@ -138,7 +175,7 @@ var spark5 = {
   },
   series: [
     {
-      data: delneu,
+      data: delneuz,
     },
   ],
   stroke: {
@@ -193,7 +230,7 @@ var spark6 = {
   },
   series: [
     {
-      data: delneg,
+      data: delnegz,
     },
   ],
   stroke: {
@@ -232,10 +269,6 @@ const sparks4 = new ApexCharts(document.querySelector("#spark4"), spark4);
 const sparks5 = new ApexCharts(document.querySelector("#spark5"), spark5);
 const sparks6 = new ApexCharts(document.querySelector("#spark6"), spark6);
 
-sparks4.render();
-sparks5.render();
-sparks6.render();
-
 // Section C: Datewise analysis of last 7 days BAR GRAPH according to the location
 var optionsBarLoco = {
   chart: {
@@ -252,15 +285,15 @@ var optionsBarLoco = {
   series: [
     {
       name: "POSITIVE",
-      data: delpos,
+      data: delposz,
     },
     {
       name: "NEUTRAL",
-      data: delneu,
+      data: delneuz,
     },
     {
       name: "NEGATIVE",
-      data: delneg,
+      data: delnegz,
     },
   ],
   title: {
@@ -280,7 +313,6 @@ var chartBarLoco = new ApexCharts(
   document.querySelector("#loco-datewise"),
   optionsBarLoco
 );
-chartBarLoco.render();
 
 // Section D: Datewise analysis of last 7 days LINE GRAPH according to the location
 
@@ -308,15 +340,15 @@ var optionsLocoLinez = {
   series: [
     {
       name: "Positive",
-      data: delpos,
+      data: delposz,
     },
     {
       name: "Neutral",
-      data: delneu,
+      data: delneuz,
     },
     {
       name: "Negative",
-      data: delneg,
+      data: delnegz,
     },
   ],
   markers: {
@@ -345,55 +377,54 @@ var optionsLocoLinez = {
   },
 };
 
-var chartLocoLinez = new ApexCharts(
+window.chartLocoLinez = new ApexCharts(
   document.querySelector("#loco-linez"),
   optionsLocoLinez
 );
-chartLocoLinez.render();
 
 // Function to change the data to data of Delhi
 function changeToDelhi() {
   chartBarLoco.updateSeries([
     {
       name: "POSITIVE",
-      data: delpos,
+      data: delposz,
     },
     {
       name: "NEUTRAL",
-      data: delneu,
+      data: delneuz,
     },
     {
       name: "NEGATIVE",
-      data: delneg,
+      data: delnegz,
     },
   ]);
   sparks4.updateSeries([
     {
-      data: delpos,
+      data: delposz,
     },
   ]);
   sparks5.updateSeries([
     {
-      data: delneu,
+      data: delneuz,
     },
   ]);
   sparks6.updateSeries([
     {
-      data: delneg,
+      data: delnegz,
     },
   ]);
   chartLocoLinez.updateSeries([
     {
       name: "Positive",
-      data: delpos,
+      data: delposz,
     },
     {
       name: "Neutral",
-      data: delneu,
+      data: delneuz,
     },
     {
       name: "Negative",
-      data: delneg,
+      data: delnegz,
     },
   ]);
   document.getElementById("selectedloc").textContent =
@@ -405,44 +436,44 @@ function changeToMumbai() {
   chartBarLoco.updateSeries([
     {
       name: "POSITIVE",
-      data: mumpos,
+      data: mumposz,
     },
     {
       name: "NEUTRAL",
-      data: mumneu,
+      data: mumneuz,
     },
     {
       name: "NEGATIVE",
-      data: mumneg,
+      data: mumnegz,
     },
   ]);
   sparks4.updateSeries([
     {
-      data: mumpos,
+      data: mumposz,
     },
   ]);
   sparks5.updateSeries([
     {
-      data: mumneu,
+      data: mumneuz,
     },
   ]);
   sparks6.updateSeries([
     {
-      data: mumneg,
+      data: mumnegz,
     },
   ]);
   chartLocoLinez.updateSeries([
     {
       name: "Positive",
-      data: mumpos,
+      data: mumposz,
     },
     {
       name: "Neutral",
-      data: mumneu,
+      data: mumneuz,
     },
     {
       name: "Negative",
-      data: mumneg,
+      data: mumnegz,
     },
   ]);
   document.getElementById("selectedloc").textContent =
@@ -454,44 +485,44 @@ function changeToChennai() {
   chartBarLoco.updateSeries([
     {
       name: "POSITIVE",
-      data: chenpos,
+      data: chenposz,
     },
     {
       name: "NEUTRAL",
-      data: chenneu,
+      data: chenneuz,
     },
     {
       name: "NEGATIVE",
-      data: chenneg,
+      data: chennegz,
     },
   ]);
   sparks4.updateSeries([
     {
-      data: chenpos,
+      data: chenposz,
     },
   ]);
   sparks5.updateSeries([
     {
-      data: chenneu,
+      data: chenneuz,
     },
   ]);
   sparks6.updateSeries([
     {
-      data: chenneg,
+      data: chennegz,
     },
   ]);
   chartLocoLinez.updateSeries([
     {
       name: "Positive",
-      data: chenpos,
+      data: chenposz,
     },
     {
       name: "Neutral",
-      data: chenneu,
+      data: chenneuz,
     },
     {
       name: "Negative",
-      data: chenneg,
+      data: chennegz,
     },
   ]);
   document.getElementById("selectedloc").textContent =
@@ -503,44 +534,44 @@ function changeToKolkata() {
   chartBarLoco.updateSeries([
     {
       name: "POSITIVE",
-      data: kolpos,
+      data: kolposz,
     },
     {
       name: "NEUTRAL",
-      data: kolneu,
+      data: kolneuz,
     },
     {
       name: "NEGATIVE",
-      data: kolneg,
+      data: kolnegz,
     },
   ]);
   sparks4.updateSeries([
     {
-      data: kolpos,
+      data: kolposz,
     },
   ]);
   sparks5.updateSeries([
     {
-      data: kolneu,
+      data: kolneuz,
     },
   ]);
   sparks6.updateSeries([
     {
-      data: kolneg,
+      data: kolnegz,
     },
   ]);
   chartLocoLinez.updateSeries([
     {
       name: "Positive",
-      data: kolpos,
+      data: kolposz,
     },
     {
       name: "Neutral",
-      data: kolneu,
+      data: kolneuz,
     },
     {
       name: "Negative",
-      data: kolneg,
+      data: kolnegz,
     },
   ]);
   document.getElementById("selectedloc").textContent =
