@@ -49,7 +49,7 @@ async function getData5() {
     dwneuz.push(dwneu);
     const dwneg = columns[4];
     dwnegz.push(dwneg);
-    const avg = columns[5];
+    const avg = Number(columns[5]).toFixed(3);
     avgsent.push(avg);
   }
 }
