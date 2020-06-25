@@ -19,7 +19,7 @@ database.loadDatabase();
 
 // Saving the overall data into the database
 // Needs to be done only once
-// database.insert({"happy":111,"neutral":111,"sad":111});
+// database.insert({ happy: 6105, neutral: 7393, sad: 2782 });
 
 // Setting up route for the get request
 app.get("/api", (request, response) => {
