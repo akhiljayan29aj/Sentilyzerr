@@ -40,6 +40,14 @@ const kolposz = [];
 const kolneuz = [];
 const kolnegz = [];
 
+const hydposz = [];
+const hydneuz = [];
+const hydnegz = [];
+
+const bangposz = [];
+const bangneuz = [];
+const bangnegz = [];
+
 const dates = [];
 
 chartIt2();
@@ -79,6 +87,20 @@ async function getData6() {
     kolneuz.push(kolneu);
     const kolneg = columns[17];
     kolnegz.push(kolneg);
+
+    const hydpos = columns[18];
+    hydposz.push(hydpos);
+    const hydneu = columns[19];
+    hydneuz.push(hydneu);
+    const hydneg = columns[20];
+    hydnegz.push(hydneg);
+
+    const bangpos = columns[21];
+    bangposz.push(bangpos);
+    const bangneu = columns[22];
+    bangneuz.push(bangneu);
+    const bangneg = columns[23];
+    bangnegz.push(bangneg);
   }
 }
 
@@ -98,7 +120,7 @@ async function chartIt2() {
 
 var spark4 = {
   chart: {
-    id: "spark1",
+    id: "spark4",
     group: "spark",
     type: "line",
     height: 160,
@@ -153,7 +175,7 @@ var spark4 = {
 
 var spark5 = {
   chart: {
-    id: "spark2",
+    id: "spark5",
     group: "spark",
     type: "line",
     height: 160,
@@ -208,7 +230,7 @@ var spark5 = {
 
 var spark6 = {
   chart: {
-    id: "spark3",
+    id: "spark6",
     group: "spark",
     type: "line",
     height: 160,
@@ -576,4 +598,102 @@ function changeToKolkata() {
   ]);
   document.getElementById("selectedloc").textContent =
     "Selected Location: Kolkata";
+}
+
+// Function to change the data to data of Hyderabad
+function changeToHyd() {
+  chartBarLoco.updateSeries([
+    {
+      name: "POSITIVE",
+      data: hydposz,
+    },
+    {
+      name: "NEUTRAL",
+      data: hydneuz,
+    },
+    {
+      name: "NEGATIVE",
+      data: hydnegz,
+    },
+  ]);
+  sparks4.updateSeries([
+    {
+      data: hydposz,
+    },
+  ]);
+  sparks5.updateSeries([
+    {
+      data: hydneuz,
+    },
+  ]);
+  sparks6.updateSeries([
+    {
+      data: hydnegz,
+    },
+  ]);
+  chartLocoLinez.updateSeries([
+    {
+      name: "Positive",
+      data: hydposz,
+    },
+    {
+      name: "Neutral",
+      data: hydneuz,
+    },
+    {
+      name: "Negative",
+      data: hydnegz,
+    },
+  ]);
+  document.getElementById("selectedloc").textContent =
+    "Selected Location: Hyderabad";
+}
+
+// Function to change the data to data of Kolkata
+function changeToBang() {
+  chartBarLoco.updateSeries([
+    {
+      name: "POSITIVE",
+      data: bangposz,
+    },
+    {
+      name: "NEUTRAL",
+      data: bangneuz,
+    },
+    {
+      name: "NEGATIVE",
+      data: bangnegz,
+    },
+  ]);
+  sparks4.updateSeries([
+    {
+      data: bangposz,
+    },
+  ]);
+  sparks5.updateSeries([
+    {
+      data: bangneuz,
+    },
+  ]);
+  sparks6.updateSeries([
+    {
+      data: bangnegz,
+    },
+  ]);
+  chartLocoLinez.updateSeries([
+    {
+      name: "Positive",
+      data: bangposz,
+    },
+    {
+      name: "Neutral",
+      data: bangneuz,
+    },
+    {
+      name: "Negative",
+      data: bangnegz,
+    },
+  ]);
+  document.getElementById("selectedloc").textContent =
+    "Selected Location: Bangalore";
 }
