@@ -71,23 +71,6 @@ input[class^="btn-"]:hover {
   margin: 4rem 0;
 }
 
-.bottom-line {
-  height: 2px;
-  width: 3rem;
-  background: #2b2d3e;
-  display: block;
-  margin: 0 auto 1rem auto;
-}
-
-.section-title {
-  font-size: 2rem;
-  display: block;
-  padding-bottom: 0.5rem;
-  text-align: center;
-  font-weight: 10000;
-  text-transform: uppercase;
-}
-
 .bg-main {
   background: #2b2d3e;
   color: #fff;
@@ -494,13 +477,6 @@ main {
   background-image: linear-gradient(135deg, #fff5b9 10%, #e79b53 100%);
 }
 
-.emogrid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-}
-
 .cc-selector input {
   margin: 0;
   padding: 0;
@@ -529,6 +505,13 @@ main {
   -webkit-filter: none;
   -moz-filter: none;
   filter: none;
+}
+
+.emogrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
 }
 
 .feed {
@@ -571,6 +554,9 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
+  .WatsonAssistantChatHost {
+    display: none;
+  }
   .navbar {
     bottom: 0;
     width: 100vw;

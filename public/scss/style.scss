@@ -371,6 +371,9 @@ main {
 
 // Mobile screen
 @media only screen and (max-width: 600px) {
+  .WatsonAssistantChatHost {
+    display: none;
+  }
   .navbar {
     bottom: 0;
     width: 100vw;
