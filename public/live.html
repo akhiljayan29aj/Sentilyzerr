@@ -36,7 +36,7 @@
         </li>
         <!-- LOCATION-WISE ANALYSIS PAGE LINK -->
         <li class="nav-item">
-          <a href="#" class="nav-link current">
+          <a href="./locolyzer.html" class="nav-link">
             <i class="fas fa-search-location fa-3x"></i>
             <span class="link-text">Locolyzer</span>
           </a>
@@ -50,7 +50,7 @@
         </li>
         <!-- LINK TO LIVE -->
         <li class="nav-item">
-          <a href="./live.html" class="nav-link">
+          <a href="#" class="nav-link current">
             <i class="fas fa-play fa-3x"></i>
             <span class="link-text">LIVE Analysis</span>
           </a>
@@ -65,89 +65,20 @@
       </ul>
     </nav>
     <!-- Main content of Locolyzer Page -->
-    <main id="loco">
-      <!-- Section A: Location Selection Section -->
-      <section class="section-a">
-        <div class="card text-center">
-          <h2>Select a location</h2>
-          <div class="locogrid">
-            <input
-              type="button"
-              onclick="changeToDelhi()"
-              value="DELHI"
-              class="btn-light"
-            />
-            <input
-              type="button"
-              onclick="changeToMumbai()"
-              value="MUMBAI"
-              class="btn-light"
-            />
-            <input
-              type="button"
-              onclick="changeToChennai()"
-              value="CHENNAI"
-              class="btn-light"
-            />
-            <input
-              type="button"
-              onclick="changeToKolkata()"
-              value="KOLKATA"
-              class="btn-light"
-            />
-            <input
-              type="button"
-              onclick="changeToHyd()"
-              value="HYDERABAD"
-              class="btn-light"
-            />
-            <input
-              type="button"
-              onclick="changeToBang()"
-              value="BANGALORE"
-              class="btn-light"
-            />
-          </div>
-        </div>
+    <main id="live">
+      <section class="section-a card">
+        <h2 class="text-center">LIVE Sentiment Analysis</h2>
+        <p class="text-center">
+          This page provides the visualization of live sentiment analysis of the
+          latest 100 tweets on COVID19. <br />The data updates every 25 seconds.
+        </p>
       </section>
-      <!-- Section B: Selected Location Details -->
-      <section class="section-b">
-        <div class="card">
-          <h2 id="selectedloc" class="text-center">Selected Location: Delhi</h2>
-          <div class="sparkboxes">
-            <div class="box box1">
-              <div class="details">
-                <h3>POSITIVE</h3>
-              </div>
-              <div id="spark4"></div>
-            </div>
-            <div class="box box2">
-              <div class="details">
-                <h3>NEUTRAL</h3>
-              </div>
-              <div id="spark5"></div>
-            </div>
-            <div class="box box3">
-              <div class="details">
-                <h3>NEGATIVE</h3>
-              </div>
-              <div id="spark6"></div>
-            </div>
-          </div>
-        </div>
+      <section class="section-b card">
+        <div id="radial-live"></div>
+        <div id="pie-live"></div>
+        <div id="polar-live"></div>
       </section>
-      <!-- Section C: Datewise analysis of last 7 days BAR GRAPH according to the location -->
-      <section class="section-c">
-        <div class="card">
-          <div id="loco-datewise"></div>
-        </div>
-      </section>
-      <!-- Section D: Datewise analysis of last 7 days LINE GRAPH according to the location -->
-      <section class="section-d">
-        <div class="card">
-          <div id="loco-linez"></div>
-        </div>
-      </section>
+
       <!-- Feedback Footer -->
       <footer id="feedback" class="footer card">
         <h2 class="text-center">
@@ -205,7 +136,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- Locolyzer Script -->
-    <script src="./js/locolyzer.js"></script>
+    <script src="./js/live.js"></script>
     <!-- SMOOTH SCROLLING SCRIPT -->
     <script src="./js/smooth.js"></script>
     <!-- Feedback Script -->

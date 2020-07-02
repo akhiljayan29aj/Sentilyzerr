@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "sentiment": "^5.0.2",
+    "twit": "^2.2.11"
   },
   "engines": {
     "node": "10.19.0"

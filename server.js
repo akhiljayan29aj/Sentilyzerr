@@ -2,6 +2,49 @@
 const express = require("express");
 const Datastore = require("nedb");
 const { response } = require("express");
+var Twit = require("twit");
+var Sentiment = require("sentiment");
+var sentiment = new Sentiment();
+
+var sent = { happy: 0, neutral: 0, sad: 0 };
+
+var T = new Twit({
+  consumer_key: "SwDQ4GSqA8WIlttQnVxMO4GuV",
+  consumer_secret: "Yvpn5y8mGGAzRZW9jMmDjbJ0dJmkbxwfFoOBNR1Z5lxHvfHrxR",
+  access_token: "837759716910596096-USg6DETZYYU2tlLOmi0hC7MG77hCFs0",
+  access_token_secret: "HIyVrBP2taKx7RqprIxSgNuVHV0JczyjcWmAlhNj1lVue",
+});
+
+getTwitAnalysis();
+
+setInterval(getTwitAnalysis, 1000 * 20);
+
+function getTwitAnalysis() {
+  T.get("search/tweets", { q: "covid", count: 100, lang: "en" }, function (
+    err,
+    data,
+    response
+  ) {
+    if (err) {
+      console.log(err);
+    } else {
+      sent = { happy: 0, neutral: 0, sad: 0 };
+
+      for (let i = 0; i < data.statuses.length; i++) {
+        let senti = sentiment.analyze(data.statuses[i].text);
+
+        if (senti.score > 0) {
+          sent.happy += 1;
+        } else if (senti.score < 0) {
+          sent.sad += 1;
+        } else if (senti.score == 0) {
+          sent.neutral += 1;
+        }
+      }
+      console.log(sent);
+    }
+  });
+}
 
 // Storing express as a function in a variable app
 const app = express();
@@ -32,9 +75,13 @@ app.get("/api", (request, response) => {
   });
 });
 
+app.get("/twits", (request, response) => {
+  response.json(sent);
+});
+
 // Setting up route the post request
 app.post("/api", (request, response) => {
-  console.log(request.body);
+  // console.log(request.body);
   const data = request.body;
   database.insert(data);
   response.json(data);
