@@ -22,6 +22,7 @@ window.Apex = {
   },
 };
 
+// Setting up Variables
 let hap;
 let neu;
 let sads;
@@ -32,8 +33,10 @@ let sadsarr = [];
 let timez = [];
 let secs = ["NOW", "-20s", "-40s", "-60s", "-80s", "-100s", "-120s"];
 
+// Calling chartIt3 function
 chartIt3();
 
+// refreshData Function: This function is used to refresh the data after fetching the new LIVE data
 async function refreshData() {
   await getTwit();
   chartCircle1.updateSeries([hap, neu, sads]);
@@ -60,6 +63,7 @@ async function refreshData() {
   ]);
 }
 
+// getTwit Function: This function fetches the LIVE analysed tweets from backend stores them in the above variables
 async function getTwit() {
   const response = await fetch("/twits");
   const data = await response.json();
@@ -82,6 +86,7 @@ async function getTwit() {
   }
 }
 
+// Section B: LIVE Radial Distribution
 const optionsCircle1 = {
   chart: {
     type: "radialBar",
@@ -151,7 +156,7 @@ const chartCircle1 = new ApexCharts(
   optionsCircle1
 );
 
-// Section A: Doughnut of Sentiments
+// Section B: LIVE Doughnut of Sentiments
 const optionz = {
   series: [hap, neu, sads],
   chart: {
@@ -192,7 +197,7 @@ const optionz = {
 
 const chartz = new ApexCharts(document.querySelector("#pie-live"), optionz);
 
-// Section A: Radar of sentiments
+// Section B: LIVE Radar of sentiments
 const optionz1 = {
   series: [
     {
@@ -254,6 +259,7 @@ const optionz1 = {
 
 const chartz1 = new ApexCharts(document.querySelector("#polar-live"), optionz1);
 
+// Section C: LIVE Sentiment Analysis
 var optionsLinezLive = {
   chart: {
     height: 328,
@@ -289,6 +295,11 @@ var optionsLinezLive = {
       data: sadsarr,
     },
   ],
+  title: {
+    text: "LIVE sentiment analysis of last 140 seconds",
+    align: "left",
+    offsetY: 0,
+  },
   markers: {
     size: 6,
     strokeWidth: 0,
@@ -320,6 +331,7 @@ var chartLinezLive = new ApexCharts(
   optionsLinezLive
 );
 
+// function chartIt3 : This function uses the data stored in the variables to render charts
 async function chartIt3() {
   await getTwit();
 

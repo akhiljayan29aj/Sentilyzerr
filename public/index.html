@@ -48,7 +48,7 @@
             <span class="link-text">NEWS</span>
           </a>
         </li>
-        <!-- LINK TO LIVE -->
+        <!-- LINK TO LIVE ANALYSIS -->
         <li class="nav-item">
           <a href="./live.html" class="nav-link">
             <i class="fas fa-play fa-3x"></i>
@@ -73,19 +73,23 @@
           <h2 class="lead">
             Sentiment Distribution
           </h2>
+          <!-- Sparkboxes -->
           <div class="sparkboxes">
+            <!-- Positive Sparkbox -->
             <div class="box box1">
               <div class="details">
                 <h3>POSITIVE</h3>
               </div>
               <div id="spark1"></div>
             </div>
+            <!-- Neutral Sparkbox -->
             <div class="box box2">
               <div class="details">
                 <h3>NEUTRAL</h3>
               </div>
               <div id="spark2"></div>
             </div>
+            <!-- Negative Sparkbox -->
             <div class="box box3">
               <div class="details">
                 <h3>NEGATIVE</h3>
@@ -93,20 +97,24 @@
               <div id="spark3"></div>
             </div>
           </div>
+          <!-- Overall Charts -->
           <div class="grid1 text-center">
+            <!-- Radial Distribution -->
             <div id="radial"></div>
+            <!-- Doughnut Chart -->
             <div id="pie"></div>
+            <!-- Radar Chart -->
             <div id="polar"></div>
           </div>
         </div>
       </section>
-      <!-- Section B: Datewise analysis of last 7 days BAR GRAPH -->
+      <!-- Section B: Datewise analysis of 7 days BAR GRAPH -->
       <section class="section-b">
         <div class="card">
           <div id="datewise"></div>
         </div>
       </section>
-      <!-- Section D: Datewise analysis of last 7 days LINE GRAPH -->
+      <!-- Section D: Datewise analysis of 7 days LINE GRAPH -->
       <section class="section-d">
         <div class="card">
           <div id="linez"></div>
@@ -152,6 +160,7 @@
         </form>
       </footer>
     </main>
+    <!-- Watson ChatBot Script -->
     <script>
       window.watsonAssistantChatOptions = {
         integrationID: "ba949a27-5619-4546-99a4-dd73f8d4a5a7", // The ID of this integration.

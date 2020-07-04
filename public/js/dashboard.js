@@ -29,15 +29,18 @@ const dwnegz = [];
 const avgsent = [];
 const dates = [];
 
+// Calling ChartIt Function
 chartIt();
 
+// getData5 Function: This function is used to fetch the csv data for the visualisation and stored in the above variables
 async function getData5() {
+  // Fetching response
   const response = await fetch(
     "https://raw.githubusercontent.com/SmartPracticeschool/SBSPS-Challenge-2671-Sentiment-analysis-of-COVID-19-tweets-Visualization-dashboard/master/public/data/VData.csv"
   );
   const data = await response.text();
-  // console.log(data);
 
+  // Parsing the tabular data into arrays
   const table = data.split("\n").slice(1);
   for (let i = 0; i < 7; i++) {
     const columns = table[i].split(",");
@@ -54,9 +57,11 @@ async function getData5() {
   }
 }
 
+// chartIt Function: This function is used to render charts for the data that we fetched from the getData5 function
 async function chartIt() {
   await getData5();
   // SECTION A: SPARKBOXES
+  // Positive Sparkbox
   var spark1 = {
     chart: {
       id: "spark1",
@@ -122,6 +127,7 @@ async function chartIt() {
     },
   };
 
+  // Neutral Sparkbox
   var spark2 = {
     chart: {
       id: "spark2",
@@ -187,6 +193,7 @@ async function chartIt() {
     },
   };
 
+  // Negative Sparkbox
   var spark3 = {
     chart: {
       id: "spark3",
@@ -256,6 +263,7 @@ async function chartIt() {
       },
     },
   };
+  // Rendering the charts in their respective divs
   new ApexCharts(document.querySelector("#spark1"), spark1).render();
   new ApexCharts(document.querySelector("#spark2"), spark2).render();
   new ApexCharts(document.querySelector("#spark3"), spark3).render();
@@ -288,7 +296,7 @@ async function chartIt() {
       },
     ],
     title: {
-      text: "Datewise Analysis of past 7 days ( dd/MM/yyyy )",
+      text: "Datewise Sentiment Analysis of 7 days ( dd/MM/yyyy )",
       align: "left",
       offsetY: 0,
     },
@@ -314,6 +322,11 @@ async function chartIt() {
         data: avgsent,
       },
     ],
+    title: {
+      text: "Average Sentiment Analysis of 7 days ( dd/MM/yyyy )",
+      align: "left",
+      offsetY: 0,
+    },
     chart: {
       type: "bar",
       height: 350,
@@ -337,7 +350,7 @@ async function chartIt() {
     },
     yaxis: {
       title: {
-        text: "Average Sentiment Date-wise",
+        text: "Average Sentiment",
       },
       tickAmount: 2,
       min: -0.12,
@@ -359,7 +372,7 @@ async function chartIt() {
   var chart3 = new ApexCharts(document.querySelector("#average"), optionsavg);
   chart3.render();
 
-  // Section D: Datewise analysis of last 14 days LINE GRAPH
+  // Section D: Datewise analysis 7 days LINE GRAPH
   var optionsLinez = {
     chart: {
       height: 328,
@@ -395,6 +408,11 @@ async function chartIt() {
         data: dwnegz,
       },
     ],
+    title: {
+      text: "Datewise Sentiment Analysis of 7 days ( dd/MM/yyyy )",
+      align: "left",
+      offsetY: 0,
+    },
     markers: {
       size: 6,
       strokeWidth: 0,

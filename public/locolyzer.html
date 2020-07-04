@@ -48,7 +48,7 @@
             <span class="link-text">NEWS</span>
           </a>
         </li>
-        <!-- LINK TO LIVE -->
+        <!-- LINK TO LIVE ANALYSIS -->
         <li class="nav-item">
           <a href="./live.html" class="nav-link">
             <i class="fas fa-play fa-3x"></i>
@@ -70,6 +70,7 @@
       <section class="section-a">
         <div class="card text-center">
           <h2>Select a location</h2>
+          <!-- Location Buttons -->
           <div class="locogrid">
             <input
               type="button"
@@ -113,20 +114,25 @@
       <!-- Section B: Selected Location Details -->
       <section class="section-b">
         <div class="card">
+          <!-- Selected Location Div -->
           <h2 id="selectedloc" class="text-center">Selected Location: Delhi</h2>
+          <!-- Sparkboxes -->
           <div class="sparkboxes">
+            <!-- Positive Sparkbox -->
             <div class="box box1">
               <div class="details">
                 <h3>POSITIVE</h3>
               </div>
               <div id="spark4"></div>
             </div>
+            <!-- Neutral Sparkbox -->
             <div class="box box2">
               <div class="details">
                 <h3>NEUTRAL</h3>
               </div>
               <div id="spark5"></div>
             </div>
+            <!-- Negative Sparkbox -->
             <div class="box box3">
               <div class="details">
                 <h3>NEGATIVE</h3>
@@ -136,13 +142,13 @@
           </div>
         </div>
       </section>
-      <!-- Section C: Datewise analysis of last 7 days BAR GRAPH according to the location -->
+      <!-- Section C: Datewise analysis of 7 days BAR GRAPH according to the location -->
       <section class="section-c">
         <div class="card">
           <div id="loco-datewise"></div>
         </div>
       </section>
-      <!-- Section D: Datewise analysis of last 7 days LINE GRAPH according to the location -->
+      <!-- Section D: Datewise analysis of 7 days LINE GRAPH according to the location -->
       <section class="section-d">
         <div class="card">
           <div id="loco-linez"></div>
@@ -182,6 +188,7 @@
         </form>
       </footer>
     </main>
+    <!-- ChatBot Script -->
     <script>
       window.watsonAssistantChatOptions = {
         integrationID: "ba949a27-5619-4546-99a4-dd73f8d4a5a7", // The ID of this integration.

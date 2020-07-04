@@ -50,51 +50,60 @@ const bangnegz = [];
 
 const dates = [];
 
+// Calling chartIt2
 chartIt2();
 
+// getData6 Function: This function fetches the data from the CSV file for the visualization and stores in above arrays
 async function getData6() {
+  // Fetching the tabular CSV data
   const response = await fetch(
     "https://raw.githubusercontent.com/SmartPracticeschool/SBSPS-Challenge-2671-Sentiment-analysis-of-COVID-19-tweets-Visualization-dashboard/master/public/data/VData.csv"
   );
   const data = await response.text();
-  // console.log(data);
+
+  // Parsing the CSV tabular data into arrays
   const table = data.split("\n").slice(1);
   for (let i = 0; i < 7; i++) {
     const columns = table[i].split(",");
+    // Dates
     const date = columns[1];
     dates.push(date);
+    // Delhi Sentiments
     const delpos = columns[6];
     delposz.push(delpos);
     const delneu = columns[7];
     delneuz.push(delneu);
     const delneg = columns[8];
     delnegz.push(delneg);
+    // Mumbai Sentiments
     const mumpos = columns[9];
     mumposz.push(mumpos);
     const mumneu = columns[10];
     mumneuz.push(mumneu);
     const mumneg = columns[11];
     mumnegz.push(mumneg);
+    // Chennai Sentiment
     const chenpos = columns[12];
     chenposz.push(chenpos);
     const chenneu = columns[13];
     chenneuz.push(chenneu);
     const chenneg = columns[14];
     chennegz.push(chenneg);
+    // Kolkata Sentiment
     const kolpos = columns[15];
     kolposz.push(kolpos);
     const kolneu = columns[16];
     kolneuz.push(kolneu);
     const kolneg = columns[17];
     kolnegz.push(kolneg);
-
+    // Hyderabad Sentiment
     const hydpos = columns[18];
     hydposz.push(hydpos);
     const hydneu = columns[19];
     hydneuz.push(hydneu);
     const hydneg = columns[20];
     hydnegz.push(hydneg);
-
+    // Bangalore Sentiment
     const bangpos = columns[21];
     bangposz.push(bangpos);
     const bangneu = columns[22];
@@ -104,6 +113,7 @@ async function getData6() {
   }
 }
 
+// chartIt2 Function: This function render the charts using the data fetched using getData6
 async function chartIt2() {
   await getData6();
 
@@ -117,7 +127,6 @@ async function chartIt2() {
 }
 
 // Section B: Sparkboxes
-
 var spark4 = {
   chart: {
     id: "spark4",
@@ -287,6 +296,7 @@ var spark6 = {
     },
   },
 };
+
 const sparks4 = new ApexCharts(document.querySelector("#spark4"), spark4);
 const sparks5 = new ApexCharts(document.querySelector("#spark5"), spark5);
 const sparks6 = new ApexCharts(document.querySelector("#spark6"), spark6);
@@ -319,7 +329,7 @@ var optionsBarLoco = {
     },
   ],
   title: {
-    text: "Datewise Analysis of past 7 days ( dd/MM/yyyy )",
+    text: "Datewise Analysis of 7 days ( dd/MM/yyyy )",
     align: "left",
     offsetY: 0,
   },
@@ -373,6 +383,11 @@ var optionsLocoLinez = {
       data: delnegz,
     },
   ],
+  title: {
+    text: "Datewise Analysis of 7 days ( dd/MM/yyyy )",
+    align: "left",
+    offsetY: 0,
+  },
   markers: {
     size: 6,
     strokeWidth: 0,

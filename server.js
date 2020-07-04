@@ -4,10 +4,12 @@ const Datastore = require("nedb");
 const { response } = require("express");
 var Twit = require("twit");
 var Sentiment = require("sentiment");
-var sentiment = new Sentiment();
 
+// Setting up variable
 var sent = { happy: 0, neutral: 0, sad: 0 };
 
+// making new Sentiment and Twit objects
+var sentiment = new Sentiment();
 var T = new Twit({
   consumer_key: "SwDQ4GSqA8WIlttQnVxMO4GuV",
   consumer_secret: "Yvpn5y8mGGAzRZW9jMmDjbJ0dJmkbxwfFoOBNR1Z5lxHvfHrxR",
@@ -15,10 +17,12 @@ var T = new Twit({
   access_token_secret: "HIyVrBP2taKx7RqprIxSgNuVHV0JczyjcWmAlhNj1lVue",
 });
 
+// Calling getTwitAnalysis
 getTwitAnalysis();
 
 setInterval(getTwitAnalysis, 1000 * 20);
 
+// getTwitAnalysis: This function fetches the lastest 100 tweets which has query="covid" in english and then performs sentiment analyses and store the result in the sent variable
 function getTwitAnalysis() {
   T.get("search/tweets", { q: "covid", count: 100, lang: "en" }, function (
     err,
@@ -41,7 +45,7 @@ function getTwitAnalysis() {
           sent.neutral += 1;
         }
       }
-      console.log(sent);
+      // console.log(sent);
     }
   });
 }
@@ -60,7 +64,7 @@ app.use(express.json({ limit: "1mb" }));
 const database = new Datastore("database.db");
 database.loadDatabase();
 
-// Saving the overall data into the database
+// Saving the overall data into the database which we got from the sentiment analysis in the python scripts
 // Needs to be done only once
 // database.insert({ happy: 6105, neutral: 7393, sad: 2782 });
 
