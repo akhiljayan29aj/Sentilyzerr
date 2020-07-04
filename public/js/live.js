@@ -231,5 +231,5 @@ async function chartIt3() {
 
   chartz1.render();
   refreshData();
-  setInterval(refreshData, 7000);
+  setInterval(refreshData, 1000 * 22);
 }
