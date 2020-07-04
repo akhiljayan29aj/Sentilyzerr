@@ -590,6 +590,9 @@ main {
   .logo {
     display: none;
   }
+  .nav-item:last-child {
+    display: none;
+  }
   .navbar-nav {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

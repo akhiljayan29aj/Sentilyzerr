@@ -400,6 +400,9 @@ main {
   .logo {
     display: none;
   }
+  .nav-item:last-child {
+    display: none;
+  }
   .navbar-nav {
     flex-direction: row;
   }
