@@ -26,8 +26,13 @@ let hap;
 let neu;
 let sads;
 
+let haparr = [];
+let neuarr = [];
+let sadsarr = [];
+let timez = [];
+let secs = ["NOW", "-20s", "-40s", "-60s", "-80s", "-100s", "-120s"];
+
 chartIt3();
-// setInterval(refreshData, 1000 * 25);
 
 async function refreshData() {
   await getTwit();
@@ -39,15 +44,42 @@ async function refreshData() {
     },
   ]);
   chartz.updateSeries([hap, neu, sads]);
+  chartLinezLive.updateSeries([
+    {
+      name: "Positive",
+      data: haparr,
+    },
+    {
+      name: "Neutral",
+      data: neuarr,
+    },
+    {
+      name: "Negative",
+      data: sadsarr,
+    },
+  ]);
 }
 
 async function getTwit() {
   const response = await fetch("/twits");
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   hap = data.happy;
   neu = data.neutral;
   sads = data.sad;
+  if (haparr.length < 7) {
+    haparr.push(hap);
+    neuarr.push(neu);
+    sadsarr.push(sads);
+    timez.unshift(secs.shift());
+  } else if ((haparr.length = 7)) {
+    haparr.shift();
+    neuarr.shift();
+    sadsarr.shift();
+    haparr.push(hap);
+    neuarr.push(neu);
+    sadsarr.push(sads);
+  }
 }
 
 const optionsCircle1 = {
@@ -222,6 +254,72 @@ const optionz1 = {
 
 const chartz1 = new ApexCharts(document.querySelector("#polar-live"), optionz1);
 
+var optionsLinezLive = {
+  chart: {
+    height: 328,
+    type: "line",
+    zoom: {
+      enabled: false,
+    },
+    dropShadow: {
+      enabled: true,
+      top: 3,
+      left: 2,
+      blur: 4,
+      opacity: 1,
+    },
+  },
+  stroke: {
+    curve: "smooth",
+    width: 2,
+  },
+
+  //colors: ["#3F51B5", '#2196F3'],
+  series: [
+    {
+      name: "Positive",
+      data: haparr,
+    },
+    {
+      name: "Neutral",
+      data: neuarr,
+    },
+    {
+      name: "Negative",
+      data: sadsarr,
+    },
+  ],
+  markers: {
+    size: 6,
+    strokeWidth: 0,
+    hover: {
+      size: 9,
+    },
+  },
+  grid: {
+    show: true,
+    padding: {
+      bottom: 0,
+    },
+  },
+  labels: timez,
+  xaxis: {
+    tooltip: {
+      enabled: false,
+    },
+  },
+  legend: {
+    position: "top",
+    horizontalAlign: "right",
+    offsetY: -20,
+  },
+};
+
+var chartLinezLive = new ApexCharts(
+  document.querySelector("#linez-live"),
+  optionsLinezLive
+);
+
 async function chartIt3() {
   await getTwit();
 
@@ -230,6 +328,8 @@ async function chartIt3() {
   chartz.render();
 
   chartz1.render();
+
+  chartLinezLive.render();
   refreshData();
-  setInterval(refreshData, 1000 * 22);
+  setInterval(refreshData, 1000 * 20);
 }
