@@ -322,7 +322,6 @@ var optionsLinezLive = {
   legend: {
     position: "top",
     horizontalAlign: "right",
-    offsetY: -20,
   },
   responsive: [
     {

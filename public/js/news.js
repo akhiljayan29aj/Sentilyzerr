@@ -111,7 +111,6 @@ var optionnew = {
   legend: {
     position: "top",
     horizontalAlign: "right",
-    offsetY: -20,
   },
 
   xaxis: {
