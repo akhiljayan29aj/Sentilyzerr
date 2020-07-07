@@ -296,7 +296,7 @@ var optionsLinezLive = {
     },
   ],
   title: {
-    text: "LIVE sentiment analysis of last 140 seconds",
+    text: "LIVE sentiment analysis of last 120 seconds",
     align: "left",
     offsetY: 0,
   },
