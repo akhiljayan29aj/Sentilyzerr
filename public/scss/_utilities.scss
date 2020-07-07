@@ -42,6 +42,24 @@ input[class^="btn-"]:hover {
   text-align: center;
 }
 
+.info {
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+  background: $bg-color;
+  width: 70%;
+  margin: auto;
+}
+
+.bottom-line {
+  height: 4px;
+  width: 8rem;
+  background: palevioletred;
+  display: block;
+  margin: -1rem auto 0.5rem auto;
+}
+
 // Padding
 
 .py {

@@ -105,6 +105,10 @@ main {
   background-color: $main-color;
 }
 
+.logo a.current {
+  filter: grayscale(0%) opacity(1);
+}
+
 .link-text {
   display: none;
   margin-left: 1rem;
@@ -123,7 +127,7 @@ main {
 // News page styling
 #news {
   display: grid;
-  grid-template-rows: 0.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 1.5rem;
   .section {
     &-a {
@@ -177,7 +181,7 @@ main {
 // Dashboard Styling
 #dashboard {
   display: grid;
-  grid-template-rows: 1fr 0.6fr 0.6fr 0.6fr 0.4fr;
+  grid-template-columns: 1fr;
   grid-gap: 1rem;
 
   .section {
@@ -245,7 +249,7 @@ main {
 // Locolyzer page Styling
 #loco {
   display: grid;
-  grid-template-rows: 0.3fr 0.5fr 1fr 0.9fr 0.4fr;
+  grid-template-columns: 1fr;
   grid-gap: 1rem;
   .locogrid {
     input .mr {
@@ -307,7 +311,7 @@ main {
 
 #live {
   display: grid;
-  grid-template-rows: 0.4fr 1fr 0.4fr;
+  grid-template-columns: 1fr;
   grid-gap: 1rem;
 
   .section {
@@ -318,6 +322,136 @@ main {
       align-items: center;
       #polar-live {
         padding-top: 3rem;
+      }
+    }
+  }
+}
+
+#home {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  .section {
+    &-a {
+      #grid-one {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        img {
+          margin: auto;
+          transition: all 250ms ease;
+        }
+        img:hover {
+          transform: translateX(-50px);
+        }
+        h1 {
+          font-size: 5rem;
+        }
+        p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+    &-b {
+      p {
+        margin-bottom: 1.3rem;
+      }
+      #grid-two {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 1rem;
+
+        .card-light,
+        .card-light h2 {
+          transition: all 250ms ease-in;
+        }
+
+        .card-light:hover {
+          transform: translateY(-1rem);
+          box-shadow: 3px 3px palevioletred;
+        }
+        .card-light:hover h2 {
+          color: palevioletred;
+        }
+      }
+    }
+    &-c,
+    &-g {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      grid-gap: 1rem;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      h2 {
+        font-size: 2.4rem;
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+      img {
+        margin: auto;
+        transition: all 500ms ease;
+      }
+      img:hover {
+        transform: rotate(360deg);
+      }
+    }
+    &-d,
+    &-e {
+      img {
+        width: 200px;
+        height: 200px;
+        transition: all 250ms ease;
+        margin-bottom: 1.2rem;
+      }
+
+      h2 {
+        margin-bottom: 2rem;
+        font-size: 2rem;
+      }
+      #grid-three {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin: 0 12rem;
+
+        img:hover {
+          transform: scale(1.2) rotate(-20deg);
+        }
+      }
+    }
+    &-f {
+      img {
+        width: 200px;
+        height: 200px;
+        transition: all 250ms ease;
+        margin-bottom: 1.2rem;
+      }
+
+      h2 {
+        margin-bottom: 2rem;
+        font-size: 2rem;
+      }
+      #grid-four {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+
+        img:hover {
+          transform: scale(1.2) rotate(-20deg);
+        }
       }
     }
   }
@@ -376,11 +510,12 @@ main {
 }
 .formgrid {
   display: grid;
-  grid-template-rows: 1fr 0.8fr;
+  grid-template-columns: 1fr;
   text-align: center;
   align-items: center;
   justify-content: center;
   grid-gap: 1.5rem;
+  margin: 0 10rem;
 
   .mar {
     margin-right: 1.5rem;
@@ -396,9 +531,6 @@ main {
     bottom: 0;
     width: 100vw;
     height: 5rem;
-  }
-  .logo {
-    display: none;
   }
   .nav-item:last-child {
     display: none;
@@ -425,7 +557,7 @@ main {
   }
 
   #dashboard {
-    grid-template-rows: 1fr 0.3fr 0.3fr 0.3fr 0.2fr;
+    grid-template-columns: 1fr;
 
     .section {
       &-a {
@@ -442,7 +574,7 @@ main {
             display: none;
           }
         }
-
+        width: 93vw;
         .lead {
           text-align: center;
         }
@@ -451,11 +583,16 @@ main {
           grid-gap: 1rem;
         }
       }
+      &-b,
+      &-c,
+      &-d {
+        width: 93vw;
+      }
     }
   }
   #loco {
     display: grid;
-    grid-template-rows: 0.3fr 0.2fr 0.7fr 0.4fr;
+    grid-template-columns: 1fr;
     grid-gap: 1rem;
     .locogrid {
       display: grid;
@@ -480,7 +617,7 @@ main {
   }
   #news {
     display: grid;
-    grid-template-rows: 0.3fr 0.5fr 0.6fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 1.5rem;
     .section {
       &-a {
@@ -526,18 +663,14 @@ main {
   }
 
   #live {
-    grid-template-rows: 0.4fr 1fr 0.4fr;
+    grid-template-columns: 1fr;
 
     .section {
       &-a {
-        h2 {
-          text-align: left;
-        }
-        p {
-          text-align: left;
-        }
+        width: 84vw;
       }
       &-b {
+        width: 84vw;
         grid-template-columns: 1fr;
         grid-gap: 1rem;
         #radial-live div:first-child {
@@ -550,10 +683,113 @@ main {
           display: none;
         }
       }
+      &-c {
+        width: 84vw;
+      }
     }
-    #feedback {
-      h2 {
-        text-align: left;
+  }
+  #feedback {
+    width: 85vw;
+  }
+
+  #home {
+    .section {
+      &-a {
+        #grid-one {
+          grid-template-columns: 1fr;
+
+          img {
+            width: 250px;
+            height: 250px;
+          }
+
+          img:hover {
+            transform: translateX(0px);
+          }
+          h1 {
+            font-size: 3.5rem;
+            text-align: center;
+          }
+          p {
+            font-size: 1.1rem;
+          }
+        }
+      }
+      &-b {
+        #grid-two {
+          grid-template-columns: repeat(1, 1fr);
+          grid-gap: 1.7rem;
+        }
+      }
+      &-c,
+      &-g {
+        grid-template-columns: 1fr;
+
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 1.5rem;
+        }
+
+        p {
+          font-size: 1.1rem;
+        }
+        img {
+          width: 250px;
+          height: 250px;
+        }
+        img:hover {
+          transform: rotate(0deg);
+        }
+      }
+      &-d,
+      &-e {
+        img {
+          width: 200px;
+          height: 200px;
+        }
+
+        h2 {
+          margin-bottom: 2rem;
+          font-size: 2rem;
+        }
+        #grid-three {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 2rem;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+
+          img:hover {
+            transform: scale(1) rotate(0deg);
+          }
+        }
+      }
+      &-f {
+        img {
+          width: 200px;
+          height: 200px;
+          transition: all 250ms ease;
+          margin-bottom: 1.2rem;
+        }
+
+        h2 {
+          margin-bottom: 2rem;
+          font-size: 2rem;
+        }
+        #grid-four {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 2rem;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+
+          img:hover {
+            transform: scale(1) rotate(0deg);
+          }
+        }
       }
     }
   }
@@ -575,7 +811,7 @@ main {
   }
 
   #dashboard {
-    grid-template-rows: 1fr 0.3fr 0.3fr 0.3fr 0.2fr;
+    grid-template-columns: 1fr;
 
     .section {
       &-a {
@@ -603,7 +839,7 @@ main {
   }
   #loco {
     display: grid;
-    grid-template-rows: 0.3fr 0.2fr 1fr 0.9fr 0.4fr;
+    grid-template-columns: 1fr;
     grid-gap: 1rem;
     .section {
       &-b {
@@ -615,7 +851,7 @@ main {
   }
   #news {
     display: grid;
-    grid-template-rows: 0.3fr 0.5fr 0.6fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 1.5rem;
     .section {
       &-a {

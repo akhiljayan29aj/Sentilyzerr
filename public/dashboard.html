@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Font Awesome CDN: for the Icons used -->
+    <!-- Font Awesome CDN: Used for Icons on the site -->
     <script
       src="https://kit.fontawesome.com/c0455e0533.js"
       crossorigin="anonymous"
     ></script>
-    <!-- ApexCharts CDN: required for plotting charts -->
+    <!-- ApexCharts CDN: Required to plot the charts -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <!-- Link to CSS File -->
+    <!-- Link to our CSS file -->
     <link rel="stylesheet" href="./css/style.css" />
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
@@ -29,14 +29,14 @@
         </li>
         <!-- DASHBOARD LINK -->
         <li class="nav-item">
-          <a href="./dashboard.html" class="nav-link">
+          <a href="#" class="nav-link current">
             <i class="fas fa-chart-area fa-3x"></i>
             <span class="link-text">Dashboard</span>
           </a>
         </li>
         <!-- LOCATION-WISE ANALYSIS PAGE LINK -->
         <li class="nav-item">
-          <a href="#" class="nav-link current">
+          <a href="./locolyzer.html" class="nav-link">
             <i class="fas fa-search-location fa-3x"></i>
             <span class="link-text">Locolyzer</span>
           </a>
@@ -64,59 +64,15 @@
         </li>
       </ul>
     </nav>
-    <!-- Main content of Locolyzer Page -->
-    <main id="loco">
-      <!-- Section A: Location Selection Section -->
+    <!-- Main Content of the dashboard -->
+    <main id="dashboard">
+      <!-- Charts and info sections -->
+      <!-- Section A: Sentiment Distribution -->
       <section class="section-a">
-        <div class="card text-center">
-          <h2>Select a location</h2>
-          <div class="bottom-line"></div>
-          <!-- Location Buttons -->
-          <div class="locogrid">
-            <input
-              type="button"
-              onclick="changeToDelhi()"
-              value="DELHI"
-              class="btn-light"
-            />
-            <input
-              type="button"
-              onclick="changeToMumbai()"
-              value="MUMBAI"
-              class="btn-light"
-            />
-            <input
-              type="button"
-              onclick="changeToChennai()"
-              value="CHENNAI"
-              class="btn-light"
-            />
-            <input
-              type="button"
-              onclick="changeToKolkata()"
-              value="KOLKATA"
-              class="btn-light"
-            />
-            <input
-              type="button"
-              onclick="changeToHyd()"
-              value="HYDERABAD"
-              class="btn-light"
-            />
-            <input
-              type="button"
-              onclick="changeToBang()"
-              value="BANGALORE"
-              class="btn-light"
-            />
-          </div>
-        </div>
-      </section>
-      <!-- Section B: Selected Location Details -->
-      <section class="section-b">
         <div class="card">
-          <!-- Selected Location Div -->
-          <h2 id="selectedloc" class="text-center">Selected Location: Delhi</h2>
+          <h2 class="lead">
+            Sentiment Distribution
+          </h2>
           <!-- Sparkboxes -->
           <div class="sparkboxes">
             <!-- Positive Sparkbox -->
@@ -124,35 +80,50 @@
               <div class="details">
                 <h3>POSITIVE</h3>
               </div>
-              <div id="spark4"></div>
+              <div id="spark1"></div>
             </div>
             <!-- Neutral Sparkbox -->
             <div class="box box2">
               <div class="details">
                 <h3>NEUTRAL</h3>
               </div>
-              <div id="spark5"></div>
+              <div id="spark2"></div>
             </div>
             <!-- Negative Sparkbox -->
             <div class="box box3">
               <div class="details">
                 <h3>NEGATIVE</h3>
               </div>
-              <div id="spark6"></div>
+              <div id="spark3"></div>
             </div>
+          </div>
+          <!-- Overall Charts -->
+          <div class="grid1 text-center">
+            <!-- Radial Distribution -->
+            <div id="radial"></div>
+            <!-- Doughnut Chart -->
+            <div id="pie"></div>
+            <!-- Radar Chart -->
+            <div id="polar"></div>
           </div>
         </div>
       </section>
-      <!-- Section C: Datewise analysis of 7 days BAR GRAPH according to the location -->
-      <section class="section-c">
+      <!-- Section B: Datewise analysis of 7 days BAR GRAPH -->
+      <section class="section-b">
         <div class="card">
-          <div id="loco-datewise"></div>
+          <div id="datewise"></div>
         </div>
       </section>
-      <!-- Section D: Datewise analysis of 7 days LINE GRAPH according to the location -->
+      <!-- Section D: Datewise analysis of 7 days LINE GRAPH -->
       <section class="section-d">
         <div class="card">
-          <div id="loco-linez"></div>
+          <div id="linez"></div>
+        </div>
+      </section>
+      <!-- Section C: Average Sentiments Datewise -->
+      <section class="section-c">
+        <div class="card">
+          <div id="average"></div>
         </div>
       </section>
       <!-- Feedback Footer -->
@@ -160,7 +131,7 @@
         <h2 class="text-center">
           What do you feel about the current sitution?
         </h2>
-        <form class="formgrid">
+        <form id="feedback-form" class="formgrid">
           <div class="cc-selector text-center emogrid">
             <div>
               <input id="happy" type="radio" name="reaction" value="happy" />
@@ -189,7 +160,7 @@
         </form>
       </footer>
     </main>
-    <!-- ChatBot Script -->
+    <!-- Watson ChatBot Script -->
     <script>
       window.watsonAssistantChatOptions = {
         integrationID: "ba949a27-5619-4546-99a4-dd73f8d4a5a7", // The ID of this integration.
@@ -212,11 +183,11 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
-    <!-- Locolyzer Script -->
-    <script src="./js/locolyzer.js"></script>
     <!-- SMOOTH SCROLLING SCRIPT -->
     <script src="./js/smooth.js"></script>
     <!-- Feedback Script -->
     <script src="./js/feedback.js"></script>
+    <!-- Dashboard script -->
+    <script src="./js/dashboard.js"></script>
   </body>
 </html>
