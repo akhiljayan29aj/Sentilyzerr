@@ -426,6 +426,7 @@ async function chartIt() {
         bottom: 0,
       },
     },
+
     labels: dates,
     xaxis: {
       tooltip: {
@@ -437,6 +438,16 @@ async function chartIt() {
       horizontalAlign: "right",
       offsetY: -20,
     },
+    responsive: [
+      {
+        breakpoint: 600,
+        options: {
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    ],
   };
 
   var chartLinez = new ApexCharts(

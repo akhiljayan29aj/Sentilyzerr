@@ -113,6 +113,7 @@ var optionnew = {
     horizontalAlign: "right",
     offsetY: -20,
   },
+
   xaxis: {
     type: "datetime",
     categories: date,
@@ -122,6 +123,16 @@ var optionnew = {
       format: "dd/MM HH:mm",
     },
   },
+  responsive: [
+    {
+      breakpoint: 600,
+      options: {
+        legend: {
+          position: "bottom",
+        },
+      },
+    },
+  ],
 };
 
 /*              STATEWISE STATS            */

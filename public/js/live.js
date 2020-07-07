@@ -324,6 +324,16 @@ var optionsLinezLive = {
     horizontalAlign: "right",
     offsetY: -20,
   },
+  responsive: [
+    {
+      breakpoint: 600,
+      options: {
+        legend: {
+          position: "bottom",
+        },
+      },
+    },
+  ],
 };
 
 var chartLinezLive = new ApexCharts(

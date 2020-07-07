@@ -412,6 +412,16 @@ var optionsLocoLinez = {
     horizontalAlign: "right",
     offsetY: -20,
   },
+  responsive: [
+    {
+      breakpoint: 600,
+      options: {
+        legend: {
+          position: "bottom",
+        },
+      },
+    },
+  ],
 };
 
 window.chartLocoLinez = new ApexCharts(
