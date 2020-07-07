@@ -124,6 +124,11 @@ a {
   padding: 25px 20px;
 }
 
+.card-light2 {
+  background-color: #343e59;
+  padding: 25px 20px;
+}
+
 body {
   background-color: #343e59;
   color: #fff;
@@ -697,6 +702,35 @@ main {
           transform: scale(1.2) rotate(-20deg);
 }
 
+#home .section-h #team {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#home .section-h #team img {
+  width: 250px;
+  border-radius: 50%;
+}
+
+#home .section-h #team a {
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  margin: 0 1rem;
+}
+
+#home .section-h #team a:hover {
+  color: palevioletred;
+}
+
 .cc-selector input {
   margin: 0;
   padding: 0;
@@ -1037,22 +1071,17 @@ main {
     font-size: 2rem;
   }
   #home .section-f #grid-four {
-    display: -ms-grid;
-    display: grid;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
     grid-gap: 2rem;
-    text-align: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
   }
   #home .section-f #grid-four img:hover {
     -webkit-transform: scale(1) rotate(0deg);
             transform: scale(1) rotate(0deg);
+  }
+  #home .section-h #team {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
   }
 }
 

@@ -454,6 +454,28 @@ main {
         }
       }
     }
+    &-h {
+      #team {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 250px;
+          border-radius: 50%;
+        }
+
+        a {
+          transition: all 200ms ease-in;
+          margin: 0 1rem;
+        }
+        a:hover {
+          color: palevioletred;
+        }
+      }
+    }
   }
 }
 
@@ -779,16 +801,17 @@ main {
           font-size: 2rem;
         }
         #grid-four {
-          display: grid;
           grid-template-columns: repeat(1, 1fr);
           grid-gap: 2rem;
-          text-align: center;
-          align-items: center;
-          justify-content: center;
 
           img:hover {
             transform: scale(1) rotate(0deg);
           }
+        }
+      }
+      &-h {
+        #team {
+          grid-template-columns: repeat(1, 1fr);
         }
       }
     }
