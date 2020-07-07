@@ -1009,8 +1009,8 @@ main {
   #home .section-d #grid-three, #home .section-e #grid-three {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
     grid-gap: 2rem;
     text-align: center;
     -webkit-box-align: center;
@@ -1039,8 +1039,8 @@ main {
   #home .section-f #grid-four {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
     grid-gap: 2rem;
     text-align: center;
     -webkit-box-align: center;
