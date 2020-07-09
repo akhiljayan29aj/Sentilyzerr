@@ -15,10 +15,13 @@ links=[]
 img=[]
 
 # appending required details in the above variables
-for i in range(3):
-    titl.append(art[i]["title"].replace(',',''))
-    links.append(art[i]["url"].replace(',',''))
-    img.append(art[i]["urlToImage"].replace(',',''))
+for i in range(5):
+    if(art[i]["urlToImage"] == None):
+        continue
+    else:
+        titl.append(art[i]["title"].replace(',',''))
+        links.append(art[i]["url"].replace(',',''))
+        img.append(art[i]["urlToImage"].replace(',',''))
 
 # Making a dictionary
 dct = {"titles":titl,"links":links,"images":img}
