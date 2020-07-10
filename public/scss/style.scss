@@ -185,6 +185,22 @@ main {
   grid-gap: 1rem;
 
   .section {
+    &-e {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      p {
+        font-size: 1.3rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
     &-a {
       #polar {
         padding-top: 3rem;
@@ -582,6 +598,18 @@ main {
     grid-template-columns: 1fr;
 
     .section {
+      &-e {
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+
+        p {
+          font-size: 1.3rem;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+      }
       &-a {
         .grid1 {
           grid-template-columns: 1fr;

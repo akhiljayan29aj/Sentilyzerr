@@ -400,6 +400,29 @@ main {
   grid-gap: 1rem;
 }
 
+#dashboard .section-e {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+#dashboard .section-e p {
+  font-size: 1.3rem;
+}
+
+#dashboard .section-e h2 {
+  font-size: 2rem;
+}
+
 #dashboard .section-a #polar {
   padding-top: 3rem;
 }
@@ -894,6 +917,17 @@ main {
   #dashboard {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+  #dashboard .section-e {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+  #dashboard .section-e p {
+    font-size: 1.3rem;
+  }
+  #dashboard .section-e h2 {
+    font-size: 2rem;
   }
   #dashboard .section-a {
     width: 93vw;

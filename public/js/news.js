@@ -235,8 +235,6 @@ async function getData2() {
   );
   const data = await response.json();
 
-  console.log(data);
-
   if (response.status == 200) {
     for (let i = 0; i < data.articles.length; i++) {
       titls.push(data.articles[i].title);
@@ -246,64 +244,63 @@ async function getData2() {
       } else {
         imgs.push(data.articles[i].image);
       }
+      getNews();
     }
-  } else {
-    const response1 = await fetch(
-      "https://raw.githubusercontent.com/SmartPracticeschool/SBSPS-Challenge-2671-Sentiment-analysis-of-COVID-19-tweets-Visualization-dashboard/master/public/data/news.csv"
-    );
-    const data1 = await response1.text();
-    const table = data1.split("\n").slice(1);
-    table.forEach((row) => {
-      const columns = row.split(",");
-      const titl = columns[1];
-      titls.push(titl);
-      const link = columns[2];
-      links.push(link);
-      const imag = columns[3];
-      imgs.push(imag);
-    });
+  } else if (response.status !== 200) {
+    document.getElementById("no-news").innerText =
+      "No NEWS Request limit reached";
   }
-
-  getNews();
 }
 
 // Embedding the images, titles and links into their respective divs
 function getNews() {
-  document.getElementById("news1").innerHTML = `<img src="${imgs[0]}">
+  document.getElementById(
+    "news1"
+  ).innerHTML = `<img src="${imgs[0]}" height="250">
   <div>
     <h3>
       <a href="${links[0]} target="_blank">${titls[0]}</a>
     </h3>
   </div>`;
 
-  document.getElementById("news2").innerHTML = `<img src="${imgs[1]}">
+  document.getElementById(
+    "news2"
+  ).innerHTML = `<img src="${imgs[1]}" height="250">
   <div>
     <h3>
       <a href="${links[1]}" target="_blank">${titls[1]}</a>
     </h3>
   </div>`;
 
-  document.getElementById("news3").innerHTML = `<img src="${imgs[2]}">
+  document.getElementById(
+    "news3"
+  ).innerHTML = `<img src="${imgs[2]}" height="250">
   <div>
     <h3>
       <a href="${links[2]}" target="_blank">${titls[2]}</a>
     </h3>
   </div>`;
-  document.getElementById("news4").innerHTML = `<img src="${imgs[3]}">
+  document.getElementById(
+    "news4"
+  ).innerHTML = `<img src="${imgs[3]}" height="250">
   <div>
     <h3>
       <a href="${links[3]}" target="_blank">${titls[3]}</a>
     </h3>
   </div>`;
 
-  document.getElementById("news5").innerHTML = `<img src="${imgs[4]}">
+  document.getElementById(
+    "news5"
+  ).innerHTML = `<img src="${imgs[4]}" height="250">
   <div>
     <h3>
       <a href="${links[4]}" target="_blank">${titls[4]}</a>
     </h3>
   </div>`;
 
-  document.getElementById("news6").innerHTML = `<img src="${imgs[5]}">
+  document.getElementById(
+    "news6"
+  ).innerHTML = `<img src="${imgs[5]}" height="250">
   <div>
     <h3>
       <a href="${links[5]}" target="_blank">${titls[5]}</a>
