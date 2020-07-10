@@ -114,6 +114,10 @@ a {
   color: white;
 }
 
+img {
+  width: 100%;
+}
+
 .card {
   background-color: #2b2d3e;
   padding: 25px 20px;
@@ -127,6 +131,44 @@ a {
 .card-light2 {
   background-color: #343e59;
   padding: 25px 20px;
+}
+
+.data {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.inc {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  border-radius: 15px;
+  margin-left: 0.7rem;
+}
+
+.inc-death {
+  background: #333;
+  color: #fff;
+}
+
+.inc-recovery {
+  background: seagreen;
+  color: #fff;
+}
+
+.inc-active {
+  background: tomato;
+  color: #000;
+}
+
+.inc-confirm {
+  background: turquoise;
+  color: #000;
 }
 
 body {
@@ -276,8 +318,8 @@ main {
 #news .section-a {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
+  -ms-grid-columns: 1.2fr 2fr;
+      grid-template-columns: 1.2fr 2fr;
   grid-gap: 1.5rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -952,7 +994,7 @@ main {
   #news .section-c .tweets {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    grid-gap: 0.2rem;
+    grid-gap: 1rem;
   }
   #news .section-c .tweets .tweet:last-child {
     display: none;

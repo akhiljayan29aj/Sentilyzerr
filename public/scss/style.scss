@@ -132,7 +132,7 @@ main {
   .section {
     &-a {
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1.2fr 2fr;
       grid-gap: 1.5rem;
       justify-content: center;
       align-items: center;
@@ -669,7 +669,7 @@ main {
       &-c {
         .tweets {
           grid-template-columns: 1fr;
-          grid-gap: 0.2rem;
+          grid-gap: 1rem;
 
           .tweet:last-child {
             display: none;

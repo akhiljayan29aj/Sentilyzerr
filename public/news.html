@@ -70,56 +70,86 @@
       <!-- SECTION-A: OVERALL AND STATEWISE STATS -->
       <section class="section-a">
         <!-- Overall Stats -->
-        <div class="total card text-center">
+        <div class="total card">
           <h2 class="text-center">Overall Stats</h2>
           <div class="bottom-line"></div>
-          <div class="tconfirmed"></div>
-          <div class="tdeaths"></div>
-          <div class="tactive"></div>
-          <div class="trecovered"></div>
+          <div class="data">
+            <span>
+              Total Confirmed Cases:
+            </span>
+            <div>
+              <span id="tconfirmed">loading..</span>
+              <span class="inc inc-confirm"></span>
+            </div>
+          </div>
+          <div class="data">
+            <span>
+              Total Deaths:
+            </span>
+            <div>
+              <span id="tdeaths">loading..</span>
+              <span class="inc inc-death"></span>
+            </div>
+          </div>
+          <div class="data">
+            <span>
+              Total Active Cases:
+            </span>
+
+            <span id="tactive">loading..</span>
+          </div>
+          <div class="data">
+            <span>
+              Total Recovered:
+            </span>
+            <div>
+              <span id="trecovered">loading..</span>
+              <span class="inc inc-recovery"></span>
+            </div>
+          </div>
         </div>
         <!-- Statewise Stats -->
         <div class="statewise card">
           <form class="text-center">
             <h2 style="margin: 0;">Statewise Stats</h2>
             <select id="mySelect" style="padding: 0.5rem;" class="my-1">
-              <option>Maharashtra</option>
-              <option>Tamil Nadu</option>
-              <option>Delhi</option>
-              <option>Gujarat</option>
-              <option>Uttar Pradesh</option>
-              <option>Rajasthan</option>
-              <option>West Bengal</option>
-              <option>Madhya Pradesh</option>
-              <option>Haryana</option>
-              <option>State Unassigned</option>
-              <option>Karnataka</option>
-              <option>Andhra Pradesh</option>
-              <option>Bihar</option>
-              <option>Telangana</option>
-              <option>Jammu and Kashmir</option>
-              <option>Assam</option>
-              <option>Odisha</option>
-              <option>Punjab</option>
-              <option>Kerala</option>
-              <option>Uttarakhand</option>
-              <option>Chhattisgarh</option>
-              <option>Jharkhand</option>
-              <option>Tripura</option>
-              <option>Ladakh</option>
-              <option>Goa</option>
-              <option>Himachal Pradesh</option>
-              <option>Manipur</option>
-              <option>Chandigarh</option>
-              <option>Puducherry</option>
-              <option>Nagaland</option>
-              <option>Mizoram</option>
-              <option>Arunachal Pradesh</option>
-              <option>Sikkim</option>
-              <option>Dadra and Nagar Haveli and Daman and Diu</option>
-              <option>Andaman and Nicobar Islands</option>
-              <option>Meghalaya</option>
-              <option>Lakshadweep</option>
+              <option id="1">Maharashtra</option>
+              <option id="2">Tamil Nadu</option>
+              <option id="3">Delhi</option>
+              <option id="4">Gujarat</option>
+              <option id="5">Uttar Pradesh</option>
+              <option id="6">Rajasthan</option>
+              <option id="7">West Bengal</option>
+              <option id="8">Madhya Pradesh</option>
+              <option id="9">Haryana</option>
+              <option id="10">State Unassigned</option>
+              <option id="11">Karnataka</option>
+              <option id="12">Andhra Pradesh</option>
+              <option id="13">Bihar</option>
+              <option id="14">Telangana</option>
+              <option id="15">Jammu and Kashmir</option>
+              <option id="16">Assam</option>
+              <option id="17">Odisha</option>
+              <option id="18">Punjab</option>
+              <option id="19">Kerala</option>
+              <option id="20">Uttarakhand</option>
+              <option id="21">Chhattisgarh</option>
+              <option id="22">Jharkhand</option>
+              <option id="23">Tripura</option>
+              <option id="24">Ladakh</option>
+              <option id="25">Goa</option>
+              <option id="26">Himachal Pradesh</option>
+              <option id="27">Manipur</option>
+              <option id="28">Chandigarh</option>
+              <option id="29">Puducherry</option>
+              <option id="30">Nagaland</option>
+              <option id="31">Mizoram</option>
+              <option id="32">Arunachal Pradesh</option>
+              <option id="33">Sikkim</option>
+              <option id="34">Dadra and Nagar Haveli and Daman and Diu</option>
+              <option id="35">Andaman and Nicobar Islands</option>
+              <option id="36">Meghalaya</option>
+              <option id="37">Lakshadweep</option>
             </select>
             <input
               class="btn-light"
@@ -129,11 +159,36 @@
             />
           </form>
           <div class="stats">
-            <div class="state"></div>
-            <div class="confirmed"></div>
-            <div class="deaths"></div>
-            <div class="active"></div>
-            <div class="recovered"></div>
+            <div class="data">
+              <span>
+                State:
+              </span>
+              <span class="state">Select Location</span>
+            </div>
+            <div class="data">
+              <span>
+                Confirmed Cases:
+              </span>
+              <span class="confirmed"></span>
+            </div>
+            <div class="data">
+              <span>
+                Deaths:
+              </span>
+              <span class="deaths"></span>
+            </div>
+            <div class="data">
+              <span>
+                Active Cases:
+              </span>
+              <span class="active"></span>
+            </div>
+            <div class="data">
+              <span>
+                Recovered:
+              </span>
+              <span class="recovered"></span>
+            </div>
           </div>
         </div>
       </section>
@@ -193,9 +248,12 @@
       <section class="section-d card">
         <h2 style="margin-bottom: 3.5rem;">Latest NEWS</h2>
         <div class="newsgrid">
-          <div id="news1"></div>
-          <div id="news2"></div>
-          <div id="news3"></div>
+          <div id="news1" class="card-light" style="height: 360px;"></div>
+          <div id="news2" class="card-light" style="height: 360px;"></div>
+          <div id="news3" class="card-light" style="height: 360px;"></div>
+          <div id="news4" class="card-light" style="height: 360px;"></div>
+          <div id="news5" class="card-light" style="height: 360px;"></div>
+          <div id="news6" class="card-light" style="height: 360px;"></div>
         </div>
       </section>
 
