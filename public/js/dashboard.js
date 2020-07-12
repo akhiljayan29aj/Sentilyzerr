@@ -60,6 +60,9 @@ async function getData5() {
 // chartIt Function: This function is used to render charts for the data that we fetched from the getData5 function
 async function chartIt() {
   await getData5();
+
+  let mxavg = Math.max(...avgsent);
+  let mnavg = Math.min(...avgsent);
   // SECTION A: SPARKBOXES
   // Positive Sparkbox
   var spark1 = {
@@ -336,9 +339,24 @@ async function chartIt() {
         colors: {
           ranges: [
             {
-              from: -100,
+              from: mnavg,
+              to: mnavg / 2,
+              color: "#F15B46",
+            },
+            {
+              from: mnavg / 2 + 0.0001,
               to: 0,
               color: "#FEB019",
+            },
+            {
+              from: 0.0001,
+              to: mxavg / 2,
+              color: "#1BBEE3",
+            },
+            {
+              from: mxavg / 2 + 0.0001,
+              to: mxavg,
+              color: "#1A80D9",
             },
           ],
         },
@@ -353,8 +371,8 @@ async function chartIt() {
         text: "Average Sentiment",
       },
       tickAmount: 2,
-      min: -0.12,
-      max: 0.12,
+      min: -(mxavg + 0.03),
+      max: mxavg + 0.03,
     },
     xaxis: {
       categories: dates,
