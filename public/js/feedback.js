@@ -38,7 +38,7 @@ function sendData() {
   div.className = `alert text-center card-light my-1`;
   div.appendChild(document.createTextNode("Your Response Was Recorded"));
   const container = document.querySelector("#feedback");
-  const form = document.querySelector("#feedback-form");
+  const form = document.querySelector(".formgrid");
   container.insertBefore(div, form);
 
   // Timeout after 3 sec
