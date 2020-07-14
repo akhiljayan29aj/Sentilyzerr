@@ -66,7 +66,7 @@ database.loadDatabase();
 
 // Saving the overall data into the database which we got from the sentiment analysis in the python scripts
 // Needs to be done only once
-// database.insert({ happy: 6105, neutral: 7393, sad: 2782 });
+// database.insert({ happy: 8579, neutral: 8409, sad: 3554 });
 
 // Setting up route for the get request
 app.get("/api", (request, response) => {
