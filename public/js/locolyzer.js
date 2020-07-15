@@ -57,7 +57,7 @@ chartIt2();
 async function getData6() {
   // Fetching the tabular CSV data
   const response = await fetch(
-    "https://raw.githubusercontent.com/SmartPracticeschool/SBSPS-Challenge-2671-Sentiment-analysis-of-COVID-19-tweets-Visualization-dashboard/master/public/data/VData.csv?token=AN4JC4XANEFJCCERVFGMUZS7B3URC"
+    "https://raw.githubusercontent.com/SmartPracticeschool/SBSPS-Challenge-2671-Sentiment-analysis-of-COVID-19-tweets-Visualization-dashboard/master/public/data/VData.csv"
   );
   const data = await response.text();
 
