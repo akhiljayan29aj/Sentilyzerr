@@ -76,7 +76,7 @@ async function getTwit() {
     neuarr.push(neu);
     sadsarr.push(sads);
     timez.unshift(secs.shift());
-  } else if ((haparr.length = 7)) {
+  } else if (haparr.length == 7) {
     haparr.shift();
     neuarr.shift();
     sadsarr.shift();
