@@ -143,16 +143,6 @@
               seconds. This provides a real-time analysis of the latest tweets.
             </p>
           </div>
-          <div class="card-light">
-            <h2 class="text-center">
-              COVID InfoBot
-            </h2>
-            <p class="text-center">
-              We have used the IBM Watson Assistant to build a COVID Info Bot
-              for our app which answers all of the queries related to the
-              ongoing Pandemic. It's right there on the bottom, give it a try.
-            </p>
-          </div>
         </div>
       </section>
       <!-- SECTION C: INFO ON COVID -->
@@ -305,7 +295,7 @@
               ><i class="fab fa-github-square fa-3x"></i
             ></a>
             <a
-              href="https://www.linkedin.com/in/akhil-jayan-569859175/"
+              href="https://www.linkedin.com/in/akhiljayan29aj/"
               target="_blank"
               ><i class="fab fa-linkedin fa-3x"></i
             ></a>
@@ -363,23 +353,6 @@
         </form>
       </footer>
     </main>
-    <!-- ChatBot Script -->
-    <script>
-      window.watsonAssistantChatOptions = {
-        integrationID: "ba949a27-5619-4546-99a4-dd73f8d4a5a7", // The ID of this integration.
-        region: "eu-gb", // The region your integration is hosted in.
-        serviceInstanceID: "348480b6-8812-4d8f-b806-7277170b8c14", // The ID of your service instance.
-        onLoad: function (instance) {
-          instance.render();
-        },
-      };
-      setTimeout(function () {
-        const t = document.createElement("script");
-        t.src =
-          "https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
-        document.head.appendChild(t);
-      });
-    </script>
     <!-- JQuery CDN -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
