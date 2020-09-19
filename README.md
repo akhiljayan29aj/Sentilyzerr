@@ -22,6 +22,8 @@ WEBAPP LINK: [Click Here](https://sentilyzerr.herokuapp.com/index.html)
 
 `LIVE Analysis`: Our web-app also has a LIVE Analysis page. This page renders charts of 100 tweets which are fetch and analysed every 25 seconds.
 
+`Watson Assistant Chatbot`: We have used the IBM Watson Asst. to build a COVID Info Bot for our app which answers all of the queries related to the ongoing Pandemic.
+
 `Responsive Design`: The app can be viewed on a mobile phone without any problem the elements of the site adjust themselves according to the size of the window of the browser.
 
 ###### If you want to run this repo you need to do the following:
