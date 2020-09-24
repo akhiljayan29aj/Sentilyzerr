@@ -1,6 +1,6 @@
 #### Sentiment analysis of COVID-19 tweets Visualization dashboard
 
-DEMO LINK: [GDrive Link](https://drive.google.com/file/d/1BogAj7lgF555Zf4_YApS-zkwMsDikVOm/view?usp=sharing) or [Youtube Video Link](https://youtu.be/xx2lG7tAIjU)
+DEMO LINK: [Youtube Video Link](https://youtu.be/xx2lG7tAIjU)
 
 WEBAPP LINK: [Click Here](https://sentilyzerr.herokuapp.com/index.html)
 
